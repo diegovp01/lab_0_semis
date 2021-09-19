@@ -1,0 +1,58 @@
+*** SPICE deck for cell NMOS_IV_lay_sim{lay} from library lab_0
+*** Created on sáb sep 18, 2021 22:43:43
+*** Last revised on sáb sep 18, 2021 23:24:46
+*** Written on sáb sep 18, 2021 23:27:09 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+***    P-Active:	areacap=0.9FF/um^2,	edgecap=0.0FF/um,	res=2.5ohms/sq
+***    N-Active:	areacap=0.9FF/um^2,	edgecap=0.0FF/um,	res=3.0ohms/sq
+***    Polysilicon-1:	areacap=0.1467FF/um^2,	edgecap=0.0608FF/um,	res=6.2ohms/sq
+***    Polysilicon-2:	areacap=1.0FF/um^2,	edgecap=0.0FF/um,	res=50.0ohms/sq
+***    Transistor-Poly:	areacap=0.09FF/um^2,	edgecap=0.0FF/um,	res=2.5ohms/sq
+***    Poly-Cut:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=2.2ohms/sq
+***    Active-Cut:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=2.5ohms/sq
+***    Metal-1:	areacap=0.1209FF/um^2,	edgecap=0.1104FF/um,	res=0.078ohms/sq
+***    Via1:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=1.0ohms/sq
+***    Metal-2:	areacap=0.0843FF/um^2,	edgecap=0.0974FF/um,	res=0.078ohms/sq
+***    Via2:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=0.9ohms/sq
+***    Metal-3:	areacap=0.0843FF/um^2,	edgecap=0.0974FF/um,	res=0.078ohms/sq
+***    Via3:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=0.8ohms/sq
+***    Metal-4:	areacap=0.0843FF/um^2,	edgecap=0.0974FF/um,	res=0.078ohms/sq
+***    Via4:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=0.8ohms/sq
+***    Metal-5:	areacap=0.0843FF/um^2,	edgecap=0.0974FF/um,	res=0.078ohms/sq
+***    Via5:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=0.8ohms/sq
+***    Metal-6:	areacap=0.0423FF/um^2,	edgecap=0.1273FF/um,	res=0.036ohms/sq
+***    Hi-Res:	areacap=0.0FF/um^2,	edgecap=0.0FF/um,	res=1.0ohms/sq
+
+*** SUBCIRCUIT lab_0__NMOS_IV_lay FROM CELL lab_0:NMOS_IV_lay{lay}
+.SUBCKT lab_0__NMOS_IV_lay d g gnd s
+MNMOS s g#0NMOS_poly-left d s NMOS L=0.6U W=3U AS=12.825P AD=12.825P PS=14.55U PD=14.55U
+** Extracted Parasitic Capacitors ***
+C0 g#0NMOS_poly-left 0 0.151fF
+C1 g 0 0.942fF
+** Extracted Parasitic Resistors ***
+R0 g g##0 9.3
+C2 g##0 0 0.151fF
+R1 g##0 g##1 9.3
+C3 g##1 0 0.151fF
+R2 g##1 g##2 9.3
+C4 g##2 0 0.151fF
+R3 g##2 g#0NMOS_poly-left 9.3
+.ENDS lab_0__NMOS_IV_lay
+
+*** TOP LEVEL CELL: lab_0:NMOS_IV_lay_sim{lay}
+XNMOS_IV_@0 d g net@4 s lab_0__NMOS_IV_lay
+** Extracted Parasitic Capacitors ***
+C0 d 0 2.525fF
+C1 g 0 1.427fF
+C2 net@4 0 3.94fF
+C3 s 0 2.525fF
+** Extracted Parasitic Resistors ***
+
+* Spice Code nodes in cell cell 'lab_0:NMOS_IV_lay_sim{lay}'
+Vd d gnd 0
+Vg g gnd 0
+Vs s gnd 0
+.include C:\Users\Usuario\Downloads\spice.txt
+.DC Vd 0 5 1m Vg 0 5 1
+.END
